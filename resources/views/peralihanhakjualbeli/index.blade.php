@@ -15,7 +15,7 @@
         </div>
         <div>
             <div class="col">
-                    @if (auth()->user()->role == 'petugas')
+                    @if (auth()->user()->role == 'pemohon')
                      <a class="btn btn-primary btn-sm my-1 mr-sm-1" href="create" role="button"><i class="fas fa-plus"></i>
                     Tambah Data</a>
                 <br>
@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (auth()->user()->role == 'petugas')
+                        @if (auth()->user()->role == 'pemohon')
                         <?php $no = 0;?>
                         @foreach($data_peralihanjualbeli->where('users_id', Auth::id()) as $data)
                         <?php $no++ ;?>

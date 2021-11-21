@@ -18,7 +18,7 @@ Route::post('/create','AuthController@daftar')->name('create');
 Route::post('/postlogin','AuthController@postlogin');
 Route::get('/logout','AuthController@logout');
 
-Route::group(['middleware' => ['auth','checkRole:admin,petugas']], function () {
+Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
 
     Route::get('/', function () {
         return view('/dashboard');
@@ -166,7 +166,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,petugas']], function () {
     Route::get('/arsip-surat-pernyataan-waris','ArsipController@suratpernyataanwaris');
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin,petugas']], function () {
+Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::resource('/instansi','InstansiController');
     Route::resource('/pengguna','PenggunaController');
 });

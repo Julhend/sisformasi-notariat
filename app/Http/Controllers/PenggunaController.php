@@ -87,8 +87,10 @@ class PenggunaController extends Controller
         $pengguna = User::findorfail($id);
 
         $this->validate($request, [
-            'name' => 'required|min:5',
+            'name' => 'required',
             'email' => 'required|email',
+            'alamat' => 'required',
+            'nomor_hp' => 'required',
         ]);
 
         $data_pengguna = [
@@ -96,6 +98,8 @@ class PenggunaController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->input('password')),
             'role' => $request->role,
+            'alamat' => $request->alamat,
+            'nomor_hp' => $request->nomor_hp,
         ];
 
         $pengguna->update($data_pengguna);

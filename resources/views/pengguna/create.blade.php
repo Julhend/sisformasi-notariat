@@ -31,7 +31,7 @@
                     <label for="role">Level</label>
                     <select name="role" id="role" class="form-control bg-light" required>
                         <option value="admin">Administrator</option>
-                        <option value="petugas">User</option>
+                        <option value="pemohon">User</option>
                         {{-- <option value="pelanggan">User</option> --}}
                     </select>
                 </div>

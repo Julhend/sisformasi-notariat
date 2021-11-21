@@ -38,6 +38,8 @@
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Level</th>
+                            <th>Alamat</th>
+                            <th>Nomor Handphone</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -50,6 +52,8 @@
                             <td>{{$pengguna->name}}</td>
                             <td>{{$pengguna->email}}</td>
                             <td>{{$pengguna->role}}</td>
+                            <td>{{$pengguna->alamat}}</td>
+                            <td>{{$pengguna->nomor_hp}}</td>
                             <td>
                                 <form action="{{ route('pengguna.destroy', $pengguna->id) }}" method="post">
                                     @csrf

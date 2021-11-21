@@ -30,7 +30,7 @@
                      <p>silahkan kirim email dengan cara klik link dibawah ini</p>
                      <a href="mailto:Ronaling25@gmail.com">Email Us</a>
                 </div>
-                @if (auth()->user()->role == 'petugas')
+                @if (auth()->user()->role == 'pemohon')
                 <div class="title">
                 <p >STATUS SURAT DITERIMA</p>
                 </div>

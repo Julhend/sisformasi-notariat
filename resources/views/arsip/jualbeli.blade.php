@@ -33,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (auth()->user()->role == 'petugas')
+                        @if (auth()->user()->role == 'pemohon')
                         <?php $no = 0;?>
                         @foreach($data_arsip->where('status','diterima')->where('users_id', Auth::id()) as $data)
                         <?php $no++ ;?>
