@@ -89,8 +89,8 @@ class PenggunaController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-            'alamat' => 'required',
-            'nomor_hp' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
         ]);
 
         $data_pengguna = [
@@ -98,8 +98,8 @@ class PenggunaController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->input('password')),
             'role' => $request->role,
-            'alamat' => $request->alamat,
-            'nomor_hp' => $request->nomor_hp,
+            'alamat' => $request->address,
+            'nomor_hp' => $request->phone,
         ];
 
         $pengguna->update($data_pengguna);

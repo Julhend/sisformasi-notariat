@@ -26,12 +26,12 @@
                     <input name="email" type="email" class="form-control bg-light" id="email" placeholder="Email"
                         value="{{$data_pengguna->email}}" required>
                     <label for="alamat">Alamat</label>
-                    <input name="alamat" type="alamat" class="form-control bg-light" id="alamat" placeholder="Alamat"
+                    <input name="address" type="address" class="form-control bg-light" id="address" placeholder="Alamat"
                         value="{{$data_pengguna->alamat}}" required>
                 </div>
                 <div class="col-6">
                     <label for="nomor_hp">Nomor Hp</label>
-                    <input name="nomor_hp" type="nomor_hp" class="form-control bg-light" id="nomor_hp" placeholder="Nomor Handphone"
+                    <input name="phone" type="phone" class="form-control bg-light" id="phone" placeholder="Nomor Handphone"
                         value="{{$data_pengguna->nomor_hp}}" required>
                     <label for="password">Password</label>
                     <input name="password" type="password" class="form-control bg-light" id="password"
