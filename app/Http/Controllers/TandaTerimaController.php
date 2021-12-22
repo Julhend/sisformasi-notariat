@@ -35,7 +35,11 @@ class TandaTerimaController extends Controller
         $data = new TandaTerima();
         $data->jenis_dokumen   = $request->input('jenis_dokumen');
         $data->jenis_hak        = $request->input('jenis_hak');
+        $data->nomor_antrian        = $request->input('nomor_antrian');
         $data->no_sertifikat  = $request->input('no_sertifikat');
+        $data->penyerah_sertifikat  = $request->input('penyerah_sertifikat');
+        $data->sertifikat_atas_nama  = $request->input('sertifikat_atas_nama');
+        $data->nomor_handphone  = $request->input('nomor_handphone');
         $data->kelurahan = $request->input('kelurahan');
         $data->luas = $request->input('luas');
         $data->keterangan = $request->input('keterangan');

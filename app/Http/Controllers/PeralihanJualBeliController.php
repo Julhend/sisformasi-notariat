@@ -44,8 +44,9 @@ class PeralihanJualBeliController extends Controller
         $peralihanjualbeli->save();
 
         $userid=$peralihanjualbeli->users->id;
+        $nomor_antrian = $peralihanjualbeli->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Hak Peralihan Jual Beli sedang berhasil dikirim', function ($m) use ($user) {
+        Mail::raw( 'Pengajuanmu untuk Hak Peralihan Jual Beli dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -191,7 +192,8 @@ class PeralihanJualBeliController extends Controller
         $peralihanjualbeli->save();
         $userid=$peralihanjualbeli->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Hak Peralihan Jual Beli Sudah diterima', function ($m) use ($user) {
+        $nomor_antrian = $peralihanjualbeli->id;
+        Mail::raw( 'Selamat Pengajuanmu untuk Hak Peralihan Jual Beli dengan nomor antrian '.$nomor_antrian.  ', Sudah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -208,7 +210,8 @@ class PeralihanJualBeliController extends Controller
         $peralihanjualbeli->save();
         $userid=$peralihanjualbeli->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Hak Peralihan Jual Beli di tolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang', function ($m) use ($user) {
+        $nomor_antrian=$peralihanjualbeli->id;
+        Mail::raw( 'Maaf Pengajuanmu untuk Hak Peralihan Jual Beli dengan nomor antrian '.$nomor_antrian.' di tolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -224,7 +227,8 @@ class PeralihanJualBeliController extends Controller
         
         $userid=$peralihanjualbeli->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Hak Peralihan Jual Beli sedang di proses oleh Admin', function ($m) use ($user) {
+        $nomor_antrian=$peralihanjualbeli->id;
+        Mail::raw( 'Pengajuanmu untuk Hak Peralihan Jual Beli dengan nomor antrian '.$nomor_antrian.' sedang di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

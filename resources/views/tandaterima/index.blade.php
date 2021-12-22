@@ -29,7 +29,11 @@
                             <th>Nama</th>
                             <th>Jenis Dokumen</th>
                             <th>Jenis Hak</th>
+                            <th>Nomor Antrian</th>
                             <th>No Sertifikat</th>
+                            <th>Penyerah Sertifikat</th>
+                            <th>Sertifikat A/N</th>
+                            <th>Nomor Handphone</th>
                             <th>Kelurahan</th>
                             <th>Luas</th>
                             <th>Keterangan</th>
@@ -46,7 +50,11 @@
                             <td>{{$data->users->name}}</td>
                             <td>{{$data->jenis_dokumen}}</td>
                             <td>{{$data->jenis_hak}}</td>
+                            <td>{{$data->nomor_antrian}}</td>
                             <td>{{$data->no_sertifikat}}</td>
+                            <td>{{$data->penyerah_sertifikat}}</td>
+                            <td>{{$data->sertifikat_atas_nama}}</td>
+                            <td>{{$data->nomor_handphone}}</td>
                             <td>{{$data->kelurahan}}</td>
                             <td>{{$data->luas}}</td>
                             <td>{{$data->keterangan}}</td>
@@ -74,7 +82,11 @@
                             <td>{{$data->users->name}}</td>
                             <td>{{$data->jenis_dokumen}}</td>
                             <td>{{$data->jenis_hak}}</td>
+                            <td>{{$data->nomor_antrian}}</td>
                             <td>{{$data->no_sertifikat}}</td>
+                            <td>{{$data->penyerah_sertifikat}}</td>
+                            <td>{{$data->sertifikat_atas_nama}}</td>
+                            <td>{{$data->nomor_handphone}}</td>
                             <td>{{$data->kelurahan}}</td>
                             <td>{{$data->luas}}</td>
                             <td>{{$data->keterangan}}</td>

@@ -21,6 +21,10 @@ class CreateTandaTerimaTable extends Migration
             $table->string('kelurahan');
             $table->string('luas');
             $table->string('keterangan');
+            $table->string('nomor_antrian');
+            $table->string('penyerah_sertifikat');
+            $table->string('sertifikat_atas_nama');
+            $table->string('nomor_handphone');
             $table->timestamps();
         });
     }

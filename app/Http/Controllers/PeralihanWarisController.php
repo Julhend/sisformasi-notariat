@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Mail;
 use App\User;
 use App\PemberianHak;
 use App\PeralihanWaris;

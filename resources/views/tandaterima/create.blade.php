@@ -31,11 +31,23 @@
                     <label for="jenis_hak">Jenis Hak</label>
                     <input value="{{old('jenis_hak')}}" name="jenis_hak" type="text" class="form-control bg-light"
                         id="jenis_hak" placeholder="Jenis Hak" required>
+                    <label for="nomor_antrian">Nomor Antrian</label>
+                    <input value="{{old('nomor_antrian')}}" name="nomor_antrian" type="text" class="form-control bg-light"
+                        id="nomor_antrian" placeholder="Nomor Antrian" required>
                     <label for="no_sertifikat">No Sertifikat</label>
                     <input value="{{old('no_sertifikat')}}" name="no_sertifikat" type="text" class="form-control bg-light"
                         id="no_sertifikat" placeholder="No Sertifikat" required>
+                    <label for="penyerah_sertifikat">Penyerah Sertifikat</label>
+                    <input value="{{old('penyerah_sertifikat')}}" name="penyerah_sertifikat" type="text" class="form-control bg-light"
+                        id="penyerah_sertifikat" placeholder="Penyerah Sertifikat" required>
                 </div>
                 <div class="col-6">
+                    <label for="sertifikat_atas_nama">Sertifikat A/N</label>
+                    <input value="{{old('sertifikat_atas_nama')}}" name="sertifikat_atas_nama" type="text" class="form-control bg-light"
+                        id="sertifikat_atas_nama" placeholder="Sertifikat A/N" required>
+                    <label for="nomor_handphone">Nomor Handphone</label>
+                    <input value="{{old('nomor_handphone')}}" name="nomor_handphone" type="text" class="form-control bg-light"
+                        id="nomor_handphone" placeholder="Nomor Handphone" required>
                     <label for="kelurahan">Kelurahan</label>
                     <input value="{{old('kelurahan')}}" name="kelurahan" type="text" class="form-control bg-light"
                         id="kelurahan" placeholder="Kelurahan" required>
