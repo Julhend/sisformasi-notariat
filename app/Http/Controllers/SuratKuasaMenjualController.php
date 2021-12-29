@@ -40,7 +40,8 @@ class SuratKuasaMenjualController extends Controller
         $suratkuasamenjual->save();
         $userid=$suratkuasamenjual->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Surat Kuasa Menjual berhasil dikirim', function ($m) use ($user) {
+        $nomor_antrian=$suratkuasamenjual->id;
+        Mail::raw( 'Pengajuanmu untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -135,7 +136,8 @@ class SuratKuasaMenjualController extends Controller
         $suratkuasamenjual->save();
         $userid=$suratkuasamenjual->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Surat Kuasa Menjual telah diterima', function ($m) use ($user) {
+        $nomor_antrian=$suratkuasamenjual->id;
+        Mail::raw( 'Selamat Pengajuanmu untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.', telah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -149,7 +151,8 @@ class SuratKuasaMenjualController extends Controller
         $suratkuasamenjual->save();
         $userid=$suratkuasamenjual->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Surat Kuasa Menjual ditolak oleh Admin', function ($m) use ($user) {
+        $nomor_antrian=$suratkuasamenjual->id;
+        Mail::raw( 'Maaf Pengajuanmu untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.', ditolak oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -163,7 +166,8 @@ class SuratKuasaMenjualController extends Controller
         $suratkuasamenjual->save();
         $userid=$suratkuasamenjual->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Surat Kuasa Menjual sedang di proses oleh Admin', function ($m) use ($user) {
+        $nomor_antrian=$suratkuasamenjual->id;
+        Mail::raw( 'Pengajuanmu untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.', sedang di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

@@ -44,8 +44,9 @@ class PeralihanWarisController extends Controller
         $peralihanwaris->users_id = Auth::id();
         $peralihanwaris->save();
         $userid=$peralihanwaris->users->id;
+        $nomor_antrian = $peralihanwaris->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Waris berhasil dikirim', function ($m) use ($user) {
+        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Waris dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -172,8 +173,9 @@ class PeralihanWarisController extends Controller
         $peralihanwaris->status = 'diterima';
         $peralihanwaris->save();
         $userid=$peralihanwaris->users->id;
+        $nomor_antrian = $peralihanwaris->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Peralihan Hak Waris telah diterima', function ($m) use ($user) {
+        Mail::raw( 'Selamat Pengajuanmu untuk Peralihan Hak Waris dengan nomor antrian'.$nomor_antrian.', telah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -186,8 +188,9 @@ class PeralihanWarisController extends Controller
         $peralihanwaris->status = 'ditolak';
         $peralihanwaris->save();
         $userid=$peralihanwaris->users->id;
+        $nomor_antrian = $peralihanwaris->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Waris di tolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Waris dengan nomor antrian'.$nomor_antrian.', di tolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -201,7 +204,8 @@ class PeralihanWarisController extends Controller
         $peralihanwaris->save();
         $userid=$peralihanwaris->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Waris sedang di proses oleh Admin', function ($m) use ($user) {
+        $nomor_antrian = $peralihanwaris->id;
+        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Waris dengan nomor antrian '.$nomor_antrian.', sedang di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

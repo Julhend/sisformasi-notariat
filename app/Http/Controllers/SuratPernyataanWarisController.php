@@ -40,7 +40,8 @@ class SuratPernyataanWarisController extends Controller
         $suratpernyataanwaris->save();
         $userid=$suratpernyataanwaris->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Surat Pernyataan dan Keterangan berhasil dikirim', function ($m) use ($user) {
+        $nomor_antrian=$suratpernyataanwaris->id;
+        Mail::raw( 'Pengajuanmu untuk Surat Pernyataan dan Keterangan dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -157,7 +158,8 @@ class SuratPernyataanWarisController extends Controller
         $suratpernyataanwaris->save();
         $userid=$suratpernyataanwaris->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Surat Pernyataan dan Keterangan telah diterima', function ($m) use ($user) {
+        $nomor_antrian=$suratpernyataanwaris->id;
+        Mail::raw( 'Selamat Pengajuanmu untuk Surat Pernyataan dan Keterangan dengan nomor antrian '.$nomor_antrian.', telah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -171,7 +173,8 @@ class SuratPernyataanWarisController extends Controller
         $suratpernyataanwaris->save();
         $userid=$suratpernyataanwaris->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Surat Pernyataan dan Keterangan ditolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang', function ($m) use ($user) {
+        $nomor_antrian=$suratpernyataanwaris->id;
+        Mail::raw( 'Maaf Pengajuanmu untuk Surat Pernyataan dan Keterangan dengan nomor antrian '.$nomor_antrian.', ditolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -185,7 +188,8 @@ class SuratPernyataanWarisController extends Controller
         $suratpernyataanwaris->save();
         $userid=$suratpernyataanwaris->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Surat Pernyataan dan Keterangan sedang di proses oleh Admin', function ($m) use ($user) {
+        $nomor_antrian=$suratpernyataanwaris->id;
+        Mail::raw( 'Pengajuanmu untuk Surat Pernyataan dan Keterangan dengan nomor antrian '.$nomor_antrian.', sedang di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

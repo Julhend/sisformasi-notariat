@@ -40,7 +40,8 @@ class PemberianHakController extends Controller
         $pemberianhak->save();
         $userid=$pemberianhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Pemberian / Pembaruan Hak berhasil dikirim', function ($m) use ($user) {
+        $nomor_antrian = $pemberianhak->id;
+        Mail::raw( 'Pengajuanmu untuk Pemberian / Pembaruan Hak dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -145,7 +146,8 @@ class PemberianHakController extends Controller
         $userid=$pemberianhak->users->id;
         $userid=$pemberianhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Pemberian / Pembaruan Hak sudah diterima', function ($m) use ($user) {
+        $nomor_antrian = $pemberianhak->id;
+        Mail::raw( 'Selamat Pengajuanmu untuk Pemberian / Pembaruan Hak dengan nomor antrian '.$nomor_antrian.', sudah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -159,7 +161,8 @@ class PemberianHakController extends Controller
         $pemberianhak->save();
         $userid=$pemberianhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Pemberian / Pembaruan Hak di tolak oleh admin, silahkan periksa berkas dan lakukan pengajuan ulang', function ($m) use ($user) {
+        $nomor_antrian = $pemberianhak->id;
+        Mail::raw( 'Maaf Pengajuanmu untuk Pemberian / Pembaruan Hak dengan nomor antrian '.$nomor_antrian.', di tolak oleh admin, silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -173,7 +176,8 @@ class PemberianHakController extends Controller
         $pemberianhak->save();
         $userid=$pemberianhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Pemberian / Pembaruan Hak sedang di proses oleh Admin', function ($m) use ($user) {
+        $nomor_antrian = $pemberianhak->id;
+        Mail::raw( 'Pengajuanmu untuk Pemberian / Pembaruan Hak dengan nomor antrian '.$nomor_antrian.', sedang di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

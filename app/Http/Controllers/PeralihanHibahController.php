@@ -43,8 +43,9 @@ class PeralihanHibahController extends Controller
         $peralihanhibah->users_id = Auth::id();
         $peralihanhibah->save();
         $userid=$peralihanhibah->users->id;
+        $nomor_antrian = $peralihanhibah->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Hibah berhasil dikirim', function ($m) use ($user) {
+        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Hibah dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -176,8 +177,9 @@ class PeralihanHibahController extends Controller
         $peralihanhibah->status = 'diterima';
         $peralihanhibah->save();
         $userid=$peralihanhibah->users->id;
+        $nomor_antrian = $peralihanhibah->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Peralihan Hak Hibah sudah di terima', function ($m) use ($user) {
+        Mail::raw( 'Selamat Pengajuanmu untuk Peralihan Hak Hibah dengan nomor antrian '.$nomor_antrian.',sudah di terima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -190,8 +192,9 @@ class PeralihanHibahController extends Controller
         $peralihanhibah->status = 'ditolak';
         $peralihanhibah->save();
         $userid=$peralihanhibah->users->id;
+        $nomor_antrian = $peralihanhibah->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Hibah telah di tolak oleh Admin, silahkan periksa berkas dan laukan pengajuan ulang', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Hibah dengan nomor antrian '.$nomor_antrian.', telah di tolak oleh Admin, silahkan periksa berkas dan laukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -204,8 +207,9 @@ class PeralihanHibahController extends Controller
         $peralihanhibah->status = 'diproses';
         $peralihanhibah->save();
         $userid=$peralihanhibah->users->id;
+        $nomor_antrian = $peralihanhibah->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Hibah sedang di proses oleh admin', function ($m) use ($user) {
+        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Hibah dengan nomor antrian '.$nomor_antrian.',sedang di proses oleh admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

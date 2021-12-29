@@ -40,7 +40,8 @@ class PenghapusanHakController extends Controller
         $penghapusanhak->save();
         $userid=$penghapusanhak->users_id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Penghapusan Hak berhasil dikirim', function ($m) use ($user) {
+        $nomor_antrian = $penghapusanhak->id;
+        Mail::raw( 'Pengajuanmu untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -143,7 +144,8 @@ class PenghapusanHakController extends Controller
         $penghapusanhak->save();
         $userid=$penghapusanhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Penghapusan Hak sudah diterima', function ($m) use ($user) {
+        $nomor_antrian = $penghapusanhak->id;
+        Mail::raw( 'Selamat Pengajuanmu untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.', sudah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -157,7 +159,8 @@ class PenghapusanHakController extends Controller
         $penghapusanhak->save();
         $userid=$penghapusanhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Penghapusan Hak telah ditolakk oleh Admin, silahkan periksa berkas dan laukan pengajuan ulang', function ($m) use ($user) {
+        $nomor_antrian = $penghapusanhak->id;
+        Mail::raw( 'Maaf Pengajuanmu untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.', telah ditolakk oleh Admin, silahkan periksa berkas dan laukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -171,7 +174,8 @@ class PenghapusanHakController extends Controller
         $penghapusanhak->save();
         $userid=$penghapusanhak->users->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Penghapusan Hak sedang di proses oleh Admin', function ($m) use ($user) {
+        $nomor_antrian = $penghapusanhak->id;
+        Mail::raw( 'Pengajuanmu untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.', sedang di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

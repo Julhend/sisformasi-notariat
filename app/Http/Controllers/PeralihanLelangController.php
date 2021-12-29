@@ -39,8 +39,9 @@ class PeralihanLelangController extends Controller
         $peralihanlelang->users_id = Auth::id();
         $peralihanlelang->save();
         $userid=$peralihanlelang->users->id;
+        $nomor_antrian = $peralihanlelang->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Lelang berhasil dikirim', function ($m) use ($user) {
+        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Lelang dengan nomor antrian '.$nomor_antrian.', berhasil dikirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -148,8 +149,9 @@ class PeralihanLelangController extends Controller
         $peralihanlelang->status = 'diterima';
         $peralihanlelang->save();
         $userid=$peralihanlelang->users->id;
+        $nomor_antrian = $peralihanlelang->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Selamat Pengajuanmu untuk Peralihan Hak Lelang telah diterima', function ($m) use ($user) {
+        Mail::raw( 'Selamat Pengajuanmu untuk Peralihan Hak Lelang dengan nomor antrian '.$nomor_antrian.', telah diterima. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -162,8 +164,9 @@ class PeralihanLelangController extends Controller
         $peralihanlelang->status = 'ditolak';
         $peralihanlelang->save();
         $userid=$peralihanlelang->users->id;
+        $nomor_antrian = $peralihanlelang->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Lelang di tolak oleh Admin, silahlan periksa berkas dan lakukan pengajuan ulang', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Lelang dengan nomor antrian '.$nomor_antrian.', di tolak oleh Admin, silahlan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
@@ -176,8 +179,9 @@ class PeralihanLelangController extends Controller
         $peralihanlelang->status = 'diproses';
         $peralihanlelang->save();
         $userid=$peralihanlelang->users->id;
+        $nomor_antrian = $peralihanlelang->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Lelang telah di proses oleh Admin', function ($m) use ($user) {
+        Mail::raw( 'Pengajuanmu untuk Peralihan Hak Lelang dengan nomor antrian '.$nomor_antrian.', telah di proses oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
