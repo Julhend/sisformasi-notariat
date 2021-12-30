@@ -102,7 +102,7 @@
                             <div class="icon">
                                 <i class="nav-icon fas fa-paper-plane"></i>
                             </div>
-                            <a href="/pemberian-pembaruan-hak/index" class="small-box-footer bg-orange">Lihat Detail <i
+                            <a href="/pemberianhak/index" class="small-box-footer bg-orange">Lihat Detail <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -220,7 +220,7 @@
                             <div class="icon">
                                 <i class="nav-icon fas fa-paper-plane"></i>
                             </div>
-                            <a href="/pemberian-pembaruan-hak/index" class="small-box-footer bg-orange">Lihat Detail <i
+                            <a href="/pemberianhak/index" class="small-box-footer bg-orange">Lihat Detail <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -339,7 +339,7 @@
                             <div class="icon">
                                 <i class="nav-icon fas fa-paper-plane"></i>
                             </div>
-                            <a href="/pemberian-pembaruan-hak/index" class="small-box-footer bg-orange">Lihat Detail <i
+                            <a href="/pemberianhak/index" class="small-box-footer bg-orange">Lihat Detail <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -461,7 +461,7 @@
                             <div class="icon">
                                 <i class="nav-icon fas fa-paper-plane"></i>
                             </div>
-                            <a href="/pemberian-pembaruan-hak/index" class="small-box-footer bg-orange">Lihat Detail <i
+                            <a href="/pemberianhak/index" class="small-box-footer bg-orange">Lihat Detail <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
