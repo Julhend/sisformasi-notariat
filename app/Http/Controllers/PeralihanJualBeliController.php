@@ -64,21 +64,21 @@ class PeralihanJualBeliController extends Controller
      public function upload (Request $request,$id)
      {
         $request->validate([
-            'pertamakk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamaktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamaktppasangan'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamaaktanikah'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamanpwp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamapbb'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamasertifikat'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'pertamakwitansi'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'keduaktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'keduakk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'keduanpwp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
+            'pertamakk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamaktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamaktppasangan'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamaaktanikah'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamanpwp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamapbb'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamasertifikat'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'pertamakwitansi'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'keduaktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'keduakk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'keduanpwp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
         ]);
         $peralihanjualbeli = \App\PeralihanJualBeli::find($id);
-        $file1 = $request->file('pertamakk');
-        $file2 = $request->file('pertamaktp');
+        $file1 = $request->file('pertamaktp');
+        $file2 = $request->file('pertamakk');
         $file3 = $request->file('pertamaktppasangan');
         $file4 = $request->file('pertamaaktanikah');
         $file5 = $request->file('pertamanpwp');
@@ -89,41 +89,62 @@ class PeralihanJualBeliController extends Controller
         $file10 = $request->file('keduaktp');
         $file11 = $request->file('keduanpwp');
 
-        $fileName1   = 'ktp-'. $file2->getClientOriginalName();
-        $fileName2   = 'kk-'. $file1->getClientOriginalName();
-        $fileName3   = 'ktpasangan-'. $file3->getClientOriginalName();
-        $fileName4   = 'aktanikah-'. $file4->getClientOriginalName();
-        $fileName5   = 'npwp-'. $file5->getClientOriginalName();
-        $fileName6   = 'pbb-'. $file6->getClientOriginalName();
-        $fileName7   = 'sertifikat-'. $file7->getClientOriginalName();
-        $fileName8   = 'kwitansi-'. $file8->getClientOriginalName();
-        $fileName9   = 'ktp-pihak-kedua-'. $file9->getClientOriginalName();
-        $fileName10   = 'kk-pihak-kedua-'. $file10->getClientOriginalName();
-        $fileName11   = 'npwp-pihak-kedua-'. $file11->getClientOriginalName();
-
-        $file1->move('dataperalihanjualbeli/', $fileName1);
-        $file2->move('dataperalihanjualbeli/', $fileName2);
-        $file3->move('dataperalihanjualbeli/', $fileName3);
-        $file4->move('dataperalihanjualbeli/', $fileName4);
-        $file5->move('dataperalihanjualbeli/', $fileName5);
-        $file6->move('dataperalihanjualbeli/', $fileName6);
-        $file7->move('dataperalihanjualbeli/', $fileName7);
-        $file8->move('dataperalihanjualbeli/', $fileName8);
-        $file9->move('dataperalihanjualbeli/', $fileName9);
-        $file10->move('dataperalihanjualbeli/', $fileName10);
-        $file11->move('dataperalihanjualbeli/', $fileName11);
-
-        $peralihanjualbeli->pertamaktp  = $fileName1;
-        $peralihanjualbeli->pertamakk  = $fileName2;
-        $peralihanjualbeli->pertamaktppasangan  = $fileName3;
-        $peralihanjualbeli->pertamaaktanikah  = $fileName4;
-        $peralihanjualbeli->pertamanpwp  = $fileName5;
-        $peralihanjualbeli->pertamapbb  = $fileName6;
-        $peralihanjualbeli->pertamasertifikat  = $fileName7;
-        $peralihanjualbeli->pertamakwitansi  = $fileName8;
-        $peralihanjualbeli->keduaktp  = $fileName9;
-        $peralihanjualbeli->keduakk  = $fileName10;
-        $peralihanjualbeli->keduanpwp  = $fileName11;
+        if(!is_null($file1)){    
+            $fileName1   = 'ktp-'. $file1->getClientOriginalName();
+            $file1->move('dataperalihanjualbeli/', $fileName1);
+            $peralihanjualbeli->pertamaktp  = $fileName1;
+        }
+        if(!is_null($file2)){
+            $fileName2   = 'kk-'. $file2->getClientOriginalName();
+            $file2->move('dataperalihanjualbeli/', $fileName2);
+            $peralihanjualbeli->pertamakk  = $fileName2;
+        }
+        if(!is_null($file3)){
+            $fileName3   = 'ktpasangan-'. $file3->getClientOriginalName();
+            $file3->move('dataperalihanjualbeli/', $fileName3);
+            $peralihanjualbeli->pertamaktppasangan  = $fileName3;
+        }
+        if(!is_null($file4)){
+            $fileName4   = 'aktanikah-'. $file4->getClientOriginalName();
+            $file4->move('dataperalihanjualbeli/', $fileName4);
+            $peralihanjualbeli->pertamaaktanikah  = $fileName4;
+        }
+        if(!is_null($file5)){
+            $fileName5   = 'npwp-'. $file5->getClientOriginalName();
+            $file5->move('dataperalihanjualbeli/', $fileName5);
+            $peralihanjualbeli->pertamanpwp  = $fileName5;
+        }
+        if(!is_null($file6)){
+            $fileName6   = 'pbb-'. $file6->getClientOriginalName();
+            $file6->move('dataperalihanjualbeli/', $fileName6);
+            $peralihanjualbeli->pertamapbb  = $fileName6;
+        }
+        if(!is_null($file7)){
+            $fileName7   = 'sertifikat-'. $file7->getClientOriginalName();
+            $file7->move('dataperalihanjualbeli/', $fileName7);
+            $peralihanjualbeli->pertamasertifikat  = $fileName7;
+        }
+        if(!is_null($file8)){
+            $fileName8   = 'kwitansi-'. $file8->getClientOriginalName();
+            $file8->move('dataperalihanjualbeli/', $fileName8);
+            $peralihanjualbeli->pertamakwitansi  = $fileName8;
+        }
+        if(!is_null($file9)){
+            $fileName9   = 'ktp-pihak-kedua-'. $file9->getClientOriginalName();
+            $file9->move('dataperalihanjualbeli/', $fileName9);
+            $peralihanjualbeli->keduaktp  = $fileName9;
+        }
+        if(!is_null($file10)){
+            $fileName10   = 'kk-pihak-kedua-'. $file10->getClientOriginalName();
+            $file10->move('dataperalihanjualbeli/', $fileName10);
+            $peralihanjualbeli->keduakk  = $fileName10;
+        }
+        if(!is_null($file11)){
+            $fileName11   = 'npwp-pihak-kedua-'. $file11->getClientOriginalName();
+            $file11->move('dataperalihanjualbeli/', $fileName11);
+            $peralihanjualbeli->keduanpwp  = $fileName11;
+        }
+        
         // $peralihanjualbeli->users_id = Auth::id();
         $peralihanjualbeli->update();
         return redirect('/peralihanjualbeli/index')->with("sukses", "Dokumen Peralihan Hak Jual Beli Berhasil Di upload");
@@ -181,6 +202,10 @@ class PeralihanJualBeliController extends Controller
 
     public function confirm(Request $request, $id)    
     {
+        $request->validate([
+            'akta'  => 'mimes:pdf|max:500',
+        ]);
+
         $peralihanjualbeli =\App\Peralihanjualbeli::find($id);
 
          $file1 = $request->file('akta');
