@@ -84,7 +84,7 @@
             </div>        
             </div>
             <!--------------------table--------------------->
-            <button type="submit" class="btn btn-success btn-sm "><i class="fas fa-save"></i> SELESAI</button>
+            <button type="submit" class="btn btn-success btn-sm "><i class="fas fa-save"></i> UPLOAD</button>
             <a class="btn btn-danger btn-sm" href="/peralihanjualbeli/index" role="button"><i class="fas fa-undo"></i> BATAL</a>
         </form>
     </div>
