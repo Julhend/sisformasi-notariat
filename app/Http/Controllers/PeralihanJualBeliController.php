@@ -144,10 +144,10 @@ class PeralihanJualBeliController extends Controller
             $file11->move('dataperalihanjualbeli/', $fileName11);
             $peralihanjualbeli->keduanpwp  = $fileName11;
         }
-        
-        // $peralihanjualbeli->users_id = Auth::id();
+
         $peralihanjualbeli->update();
-        return redirect('/peralihanjualbeli/index')->with("sukses", "Dokumen Peralihan Hak Jual Beli Berhasil Di upload");
+        // return redirect('/peralihanjualbeli/$balik/dokumen')->with("sukses", "Dokumen Peralihan Hak Jual Beli Berhasil Di upload");
+        return \Redirect::back()->with("sukses", "Dokumen Peralihan Hak Jual Beli Berhasil Di upload");
 
      }
 
