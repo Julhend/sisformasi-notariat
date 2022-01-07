@@ -85,8 +85,8 @@ class PeralihanJualBeliController extends Controller
         $file6 = $request->file('pertamapbb');
         $file7 = $request->file('pertamasertifikat');
         $file8 = $request->file('pertamakwitansi');
-        $file9 = $request->file('keduakk');
-        $file10 = $request->file('keduaktp');
+        $file9 = $request->file('keduaktp');
+        $file10 = $request->file('keduakk');
         $file11 = $request->file('keduanpwp');
 
         if(!is_null($file1)){    
