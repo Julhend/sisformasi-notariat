@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/peralihanjualbeli/{id}/delete','PeralihanJualBeliController@delete');
     Route::get('/peralihanjualbeli/{id}/reject','PeralihanJualBeliController@reject');
     Route::get('/peralihanjualbeli/{id}/process','PeralihanJualBeliController@process');
+    Route::get('/peralihanjualbeli/{id}/resend','PeralihanJualBeliController@resend');
     Route::post('/peralihanjualbeli/{id}/upload','PeralihanJualBeliController@upload');
     Route::get('/peralihanjualbeli/{id}/dokumen','PeralihanJualBeliController@see');
     Route::get('/peralihanjualbeli/tampil','PeralihanJualBeliController@downfunc');

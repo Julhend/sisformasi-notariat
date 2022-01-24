@@ -260,6 +260,22 @@ class PeralihanJualBeliController extends Controller
         });
         return redirect('peralihanjualbeli/index')->with('sukses','Surat Peralihan Hak Jual Beli Berhasil Dikonfirmasi');
     }
+    public function resend($id)
+    {
+        $peralihanjualbeli=\App\Peralihanjualbeli::find($id);
+        $peralihanjualbeli->status = 'pending';
+        $peralihanjualbeli->save();
+        
+        $userid=$peralihanjualbeli->users->id;
+        $user = User::findOrFail($userid);
+        $nomor_antrian=$peralihanjualbeli->id;
+        Mail::raw( 'Pengajuan ulang untuk Hak Peralihan Jual Beli dengan nomor antrian '.$nomor_antrian.' berhasil di kirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+            $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
+
+            $m->to($user->email, $user->name)->subject('Status Pengajuan');
+        });
+        return redirect('peralihanjualbeli/index')->with('sukses','Surat Peralihan Hak Jual Beli Berhasil di Kirim Kembali');
+    }
 
 
     public function agenda(Request $request)
