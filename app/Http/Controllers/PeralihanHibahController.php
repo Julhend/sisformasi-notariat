@@ -216,5 +216,21 @@ class PeralihanHibahController extends Controller
         });
         return redirect('peralihanhibah/index')->with('sukses','Surat Peralihan Hak Hibah Berhasil Dikonfirmasi');
     }
+    public function resend($id)
+    {
+        $peralihanhibah=\App\PeralihanHibah::find($id);
+        $peralihanhibah->status = 'pending';
+        $peralihanhibah->save();
+        
+        $userid=$peralihanhibah->users->id;
+        $user = User::findOrFail($userid);
+        $nomor_antrian=$peralihanhibah->id;
+        Mail::raw( 'Pengajuan ulang untuk Hak Hibah dengan nomor antrian '.$nomor_antrian.' berhasil di kirim kembali. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+            $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
+
+            $m->to($user->email, $user->name)->subject('Status Pengajuan');
+        });
+        return redirect('peralihanhibah/index')->with('sukses','Surat Peralihan Hak Hibah berhasil di Kirim Kembali');
+    }
  
 }

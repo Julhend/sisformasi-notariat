@@ -63,7 +63,7 @@
                                     @if($data->status == 'ditolak')
                                     <a href="/peralihanjualbeli/{{$data->id}}/resend"
                                         class="btn btn-primary btn-sm my-1 mr-sm-1 btn-block"
-                                        onclick="return confirm('Proses surat ini ?')"><i class="nav-icon fas fa-sync"></i>
+                                        onclick="return confirm('Kirim ulang permohonan ini ?')"><i class="nav-icon fas fa-sync"></i>
                                         Kirim Ulang</a>
                                     @endif
                                 <a href="/peralihanjualbeli/{{$data->id}}/delete"

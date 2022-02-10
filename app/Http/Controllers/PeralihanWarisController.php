@@ -212,5 +212,22 @@ class PeralihanWarisController extends Controller
         });
         return redirect('peralihanwaris/index')->with('sukses','Surat Peralihan Hak Waris Berhasil Dikonfirmasi');
     }
+
+    public function resend($id)
+    {
+        $peralihanwaris=\App\PeralihanWaris::find($id);
+        $peralihanwaris->status = 'pending';
+        $peralihanwaris->save();
+        
+        $userid=$peralihanwaris->users->id;
+        $user = User::findOrFail($userid);
+        $nomor_antrian=$peralihanwaris->id;
+        Mail::raw( 'Pengajuan ulang untuk Hak Waris dengan nomor antrian '.$nomor_antrian.' berhasil di kirim kembali. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+            $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
+
+            $m->to($user->email, $user->name)->subject('Status Pengajuan');
+        });
+        return redirect('peralihanwaris/index')->with('sukses','Surat Peralihan Hak Waris berhasil di Kirim Kembali');
+    }
  
 }

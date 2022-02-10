@@ -36,6 +36,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/peralihanjualbeli/{id}/reject','PeralihanJualBeliController@reject');
     Route::get('/peralihanjualbeli/{id}/process','PeralihanJualBeliController@process');
     Route::get('/peralihanjualbeli/{id}/resend','PeralihanJualBeliController@resend');
+   
+   
     Route::post('/peralihanjualbeli/{id}/upload','PeralihanJualBeliController@upload');
     Route::get('/peralihanjualbeli/{id}/dokumen','PeralihanJualBeliController@see');
     Route::get('/peralihanjualbeli/tampil','PeralihanJualBeliController@downfunc');
@@ -64,6 +66,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
      Route::post('/peralihanhibah/{id}/upload','PeralihanHibahController@upload');
      Route::get('/peralihanhibah/{id}/dokumen','PeralihanHibahController@see');
      Route::get('/peralihanhibah/tampil','PeralihanHibahController@downfunc');
+     Route::get('/peralihanhibah/{id}/resend','PeralihanHibahController@resend');
 
  //waris
     Route::get('/peralihanwaris','PeralihanWarisController@index');
@@ -80,6 +83,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
      Route::post('/peralihanwaris/{id}/upload','PeralihanWarisController@upload');
      Route::get('/peralihanwaris/{id}/dokumen','PeralihanWarisController@see');
      Route::get('/peralihanwaris/tampil','PeralihanWarisController@downfunc');
+     Route::get('/peralihanwaris/{id}/resend','PeralihanWarisController@resend');
 
  //lelang
     Route::get('/peralihanlelang','PeralihanLelangController@index');
