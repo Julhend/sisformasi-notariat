@@ -29,7 +29,6 @@
                         <tr class="bg-light">
                             <th>No.</th>
                             <th>No Antrian</th>
-                            <th>Jenis Pengajuan</th>
                             <th>Tanggal Pengajuan</th>
                             <th>Keterangan</th>
                             <th>Status</th>
@@ -44,7 +43,6 @@
                         <tr>
                             <td>{{$no}}</td>
                             <td>{{$data->id}}</td>
-                            <td>{{$data->jenis_pengajuan}}</td>
                             <td>{{$data->tgl_pengajuan}}</td>
                             <td>{{$data->keterangan}}</td>
                             <td>{{$data->status}}</td>
@@ -72,7 +70,6 @@
                         <tr>
                            <td>{{$no}}</td>
                             <td>{{$data->id}}</td>
-                            <td>{{$data->jenis_pengajuan}}</td>
                             <td>{{$data->tgl_pengajuan}}</td>
                             <td>{{$data->keterangan}}</td>
                             <td>{{$data->status}}</td>

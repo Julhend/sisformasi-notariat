@@ -25,6 +25,12 @@
             line-height: 35px;
         }
 
+        .ttd  {
+            position:absolute;
+            right:0%;
+            top:50%;
+        }
+
         .line {
             line-height: 40%;
         }
@@ -76,8 +82,6 @@
     </table>
 
          {{-- <div class="float-right text-left" style="width:30%">
-     
-
             <p>Tanjungpinang, </p>
             <p>Yang menerima,<p>
 
@@ -88,8 +92,20 @@
     </div> --}}
 
 
+    {{-- <h1>Invoice</h1>
+    Awesome company<br />
+    7026 Hunters Creek Dr<br />
+
+    <h2 style="margin-top: 3rem">Bill to</h2>
+    {{$data->users->name}}<br /> --}}
+
+    <div class="ttd">
+       Yang Menerima : __________________ <br />
+    </div>
+
+
     <footer>
-        Tanjungpinang | Yang Menerima: {{$data->users->name}} | <?php echo date("F j, Y");?>
+        Tanjungpinang | <?php echo date("F j, Y");?>
     </footer>
 </body>
 

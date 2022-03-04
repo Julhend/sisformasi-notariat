@@ -28,6 +28,7 @@
                             <th>Keterangan</th>
                             <th>Akta</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +64,10 @@
                             <td> <a href="/dataperalihanlelang/{{$data->akta}}" download="{{$data->akta}}">{{$data->akta}}</td>
                             <td>{{$data->status}}</td>
                             <td>
+                                <a href="/peralihanlelang/{{$data->id}}/upload-akta"
+                                    class="btn btn-primary btn-sm my-1 mr-sm-1 btn-block"
+                                    onclick="return confirm('Konfirmasi surat ini ?')"><i class="nav-icon fas fa-file-alt"></i>
+                                    Confirm</a>
                             </td>
                         </tr>
                         @endforeach

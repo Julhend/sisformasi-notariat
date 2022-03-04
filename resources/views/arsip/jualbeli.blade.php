@@ -30,6 +30,7 @@
                             <th>Keterangan</th>
                             <th>Akta</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +70,9 @@
                             <td> <a href="/dataperalihanjualbeli/{{$data->akta}}" download="{{$data->akta}}">{{$data->akta}}</td>
                             <td>{{$data->status}}</td>
                             <td>
+                                <a href="/peralihanjualbeli/{{$data->id}}/upload-akta"
+                                    class="btn btn-primary btn-sm my-1 mr-sm-1 btn-block"   ><i class="nav-icon fas fa-file-alt"></i>
+                                    Akta</a>
                             </td>
                         </tr>
                         @endforeach
