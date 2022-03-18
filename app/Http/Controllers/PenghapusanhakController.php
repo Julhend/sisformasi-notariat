@@ -196,4 +196,21 @@ class PenghapusanHakController extends Controller
         return redirect('penghapusanhak/index')->with('sukses','Surat Pemberian / Pembaruan Hak Berhasil Dikonfirmasi');
     }
  
+    public function resend($id)
+    {
+        $penghapusanhak=\App\PenghapusanHak::find($id);
+        $penghapusanhak->status = 'pending';
+        $penghapusanhak->save();
+        
+        $userid=$penghapusanhak->users->id;
+        $user = User::findOrFail($userid);
+        $nomor_antrian=$penghapusanhak->id;
+        Mail::raw( 'Pengajuan ulang untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.' berhasil di kirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+            $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
+
+            $m->to($user->email, $user->name)->subject('Status Pengajuan');
+        });
+        return redirect('penghapusanhak/index')->with('sukses','Surat Peralihan Hak Jual Beli Berhasil di Kirim Kembali');
+    }
+
 }

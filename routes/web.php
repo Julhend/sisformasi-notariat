@@ -134,6 +134,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
      Route::post('/penghapusanhak/{id}/upload','PenghapusanHakController@upload');
      Route::get('/penghapusanhak/{id}/dokumen','PenghapusanHakController@see');
      Route::get('/penghapusanhak/tampil','PenghapusanHakController@downfunc');
+     Route::get('/penghapusanhak/{id}/resend','PenghapusanHakController@resend');
  //suratkuasa
     Route::get('/suratkuasamenjual','SuratKuasaMenjualController@index');
     Route::get('/suratkuasamenjual/index','SuratKuasaMenjualController@index');
@@ -150,6 +151,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
      Route::post('/suratkuasamenjual/{id}/upload','SuratKuasaMenjualController@upload');
      Route::get('/suratkuasamenjual/{id}/dokumen','SuratKuasaMenjualController@see');
      Route::get('/suratkuasamenjual/tampil','SuratKuasaMenjualController@downfunc');
+     Route::get('/suratkuasamenjual/{id}/resend','SuratKuasaMenjualController@resend');
  //suratkuasa
     Route::get('/suratpernyataanwaris','SuratPernyataanWarisController@index');
     Route::get('/suratpernyataanwaris/index','SuratPernyataanWarisController@index');

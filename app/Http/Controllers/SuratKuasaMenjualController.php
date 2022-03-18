@@ -188,5 +188,22 @@ class SuratKuasaMenjualController extends Controller
         });
         return redirect('suratkuasamenjual/index')->with('sukses','Surat Kuasa Menjual Berhasil Dikonfirmasi');
     }
+
+    public function resend($id)
+    {
+        $suratkuasamenjual=\App\SuratKuasaMenjual::find($id);
+        $suratkuasamenjual->status = 'pending';
+        $suratkuasamenjual->save();
+        
+        $userid=$suratkuasamenjual->users->id;
+        $user = User::findOrFail($userid);
+        $nomor_antrian=$suratkuasamenjual->id;
+        Mail::raw( 'Pengajuan ulang untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.' berhasil di kirim. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+            $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
+
+            $m->to($user->email, $user->name)->subject('Status Pengajuan');
+        });
+        return redirect('suratkuasamenjual/index')->with('sukses','Surat Peralihan Hak Jual Beli Berhasil di Kirim Kembali');
+    }
  
 }
