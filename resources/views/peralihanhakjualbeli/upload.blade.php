@@ -23,7 +23,7 @@
             {{csrf_field()}}
             <div class="row">
             <!--------------------table--------------------->
-            <label class="fas fa-dot-circle"> Pihak Pertama - <i style="color:red;">Harus diupload semua!</i></label>
+            <label class="fas fa-dot-circle"> Pihak Pertama</label>
             <div class="portlet-content col-12">
              <div class="table-responsive" id="news-grid">
             <table class="table table-hover">

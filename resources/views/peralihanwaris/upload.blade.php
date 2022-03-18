@@ -35,22 +35,22 @@
                 
             <tr class="odd">
             <td width="2%">1</td><td width="30%">Akta Kematian </td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->almaktakematian}}" download="{{$peralihanwaris->almaktakematian}}">{{$peralihanwaris->almaktakematian}}</td><td width="10%"><input name="almaktakematian" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->almaktakematian}}" required></td></tr>
+                            value="{{$peralihanwaris->almaktakematian}}"></td></tr>
             <tr class="even">
             <td width="2%">2</td><td width="30%">Akta Nikah</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->almaktanikah}}" download="{{$peralihanwaris->almaktanikah}}">{{$peralihanwaris->almaktanikah}}</td><td width="10%"><input name="almaktanikah" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->almaktanikah}}" required></td></tr></td></tr>
+                            value="{{$peralihanwaris->almaktanikah}}"></td></tr></td></tr>
             <tr class="odd">
             <td width="2%">3</td><td width="30%">KK</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->almkk}}" download="{{$peralihanwaris->almkk}}">{{$peralihanwaris->almkk}}</td><td width="10%"><input name="almkk" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->almkk}}" required></td></tr></td></tr>
+                            value="{{$peralihanwaris->almkk}}"></td></tr></td></tr>
             <tr class="even">
             <td width="2%">4</td><td width="30%">NPWP</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->almnpwp}}" download="{{$peralihanwaris->almnpwp}}">{{$peralihanwaris->almnpwp}}</td><td width="10%"><input name="almnpwp" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->almnpwp}}" required></td></tr></td></tr>
+                            value="{{$peralihanwaris->almnpwp}}"></td></tr></td></tr>
             <tr class="odd">
             <td width="2%">5</td><td width="30%">PBB 2021 (Yang telah di bayar)</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->almpbb}}" download="{{$peralihanwaris->almpbb}}">{{$peralihanwaris->almpbb}}</td><td width="10%"><input name="almpbb" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->almpbb}}" required></td></tr></td></tr>
+                            value="{{$peralihanwaris->almpbb}}"></td></tr></td></tr>
             <tr class="even">
             <td width="2%">6</td><td width="30%">Sertifikat Asli</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->almsertifikat}}" download="{{$peralihanwaris->almsertifikat}}">{{$peralihanwaris->almsertifikat}}</td><td width="10%"><input name="almsertifikat" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->almsertifikat}}" required></td></tr></td></tr>
+                            value="{{$peralihanwaris->almsertifikat}}"></td></tr></td></tr>
             </tbody>
             </table><div class="keys" style="display:none" title="/pengajuan/view?IDPengajuan=992&amp;IDJenisSidang=6"><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span></div>
             </div>        

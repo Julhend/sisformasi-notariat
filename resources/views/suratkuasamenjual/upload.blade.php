@@ -35,13 +35,13 @@
                 
             <tr class="odd">
             <td width="2%">1</td><td width="30%">KTP Pemberi Kuasa </td><td width="10%"><a href="/datasuratkuasamenjual/{{$suratkuasamenjual->ktp_pemberi_kuasa}}" download="{{$suratkuasamenjual->ktp_pemberi_kuasa}}">{{$suratkuasamenjual->ktp_pemberi_kuasa}}</td><td width="10%"><input name="ktp_pemberi_kuasa" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$suratkuasamenjual->ktp_pemberi_kuasa}}" required></td></tr>
+                            value="{{$suratkuasamenjual->ktp_pemberi_kuasa}}"></td></tr>
             <tr class="even">
             <td width="2%">2</td><td width="30%">KTP Penerima Kuasa</td><td width="10%"><a href="/datasuratkuasamenjual/{{$suratkuasamenjual->ktp_penerima_kuasa}}" download="{{$suratkuasamenjual->ktp_penerima_kuasa}}">{{$suratkuasamenjual->ktp_penerima_kuasa}}</td><td width="10%"><input name="ktp_penerima_kuasa" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$suratkuasamenjual->ktp_penerima_kuasa}}" required></td></tr></td></tr>
+                            value="{{$suratkuasamenjual->ktp_penerima_kuasa}}"></td></tr></td></tr>
             <tr class="odd">
             <td width="2%">3</td><td width="30%">Fotokopi Sertifikat</td><td width="10%"><a href="/datasuratkuasamenjual/{{$suratkuasamenjual->fotokopi_sertifikat}}" download="{{$suratkuasamenjual->fotokopi_sertifikat}}">{{$suratkuasamenjual->fotokopi_sertifikat}}</td><td width="10%"><input name="fotokopi_sertifikat" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$suratkuasamenjual->fotokopi_sertifikat}}" required></td></tr></td></tr>
+                            value="{{$suratkuasamenjual->fotokopi_sertifikat}}"></td></tr></td></tr>
             <tr class="even">
             </tbody>
             </table><div class="keys" style="display:none" title="/pengajuan/view?IDPengajuan=992&amp;IDJenisSidang=6"><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span></div>

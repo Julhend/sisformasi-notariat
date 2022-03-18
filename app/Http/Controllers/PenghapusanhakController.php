@@ -70,10 +70,10 @@ class PenghapusanHakController extends Controller
      public function upload (Request $request,$id)
      {
         $request->validate([
-            'sertifikat_asli'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'sertifikat_hak_tanggungan'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'surat_roya'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'ktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
+            'sertifikat_asli'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'sertifikat_hak_tanggungan'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'surat_roya'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'ktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
         ]);
         $penghapusanhak = \App\PenghapusanHak::find($id);
         $file1 = $request->file('sertifikat_asli');
@@ -81,24 +81,30 @@ class PenghapusanHakController extends Controller
         $file3 = $request->file('surat_roya');
         $file4 = $request->file('ktp');
 
-
-        $fileName1   = 'sertifikat_asli-'. $file1->getClientOriginalName();
-        $fileName2   = 'sertifikat_hak_tanggungan-'. $file2->getClientOriginalName();
-        $fileName3   = 'surat_roya-'. $file3->getClientOriginalName();
-        $fileName4   = 'ktp-'. $file4->getClientOriginalName();
-
-        $file1->move('datapenghapusanhak/', $fileName1);
-        $file2->move('datapenghapusanhak/', $fileName2);
-        $file3->move('datapenghapusanhak/', $fileName3);
-        $file4->move('datapenghapusanhak/', $fileName4);
-
-       
-        $penghapusanhak->sertifikat_asli  = $fileName1;
-        $penghapusanhak->sertifikat_hak_tanggungan  = $fileName2;
-        $penghapusanhak->surat_roya  = $fileName3;
-        $penghapusanhak->ktp  = $fileName4;  
+        if(!is_null($file1)){
+            $fileName1   = 'sertifikat_asli-'. $file1->getClientOriginalName();
+            $file1->move('datapenghapusanhak/', $fileName1);
+            $penghapusanhak->sertifikat_asli  = $fileName1;
+        }
+        if(!is_null($file2)){
+            $fileName2   = 'sertifikat_hak_tanggungan-'. $file2->getClientOriginalName();
+            $file2->move('datapenghapusanhak/', $fileName2);
+            $penghapusanhak->sertifikat_hak_tanggungan  = $fileName2;
+        }
+        if(!is_null($file3)){
+            $fileName3   = 'surat_roya-'. $file3->getClientOriginalName();
+            $file3->move('datapenghapusanhak/', $fileName3);
+            $penghapusanhak->surat_roya  = $fileName3;
+        }
+        if(!is_null($file4)){
+            $fileName4   = 'ktp-'. $file4->getClientOriginalName();
+            $file4->move('datapenghapusanhak/', $fileName4);
+            $penghapusanhak->ktp  = $fileName4;  
+        }
+     
         $penghapusanhak->update();
-        return redirect('/penghapusanhak/index')->with("sukses", "Dokumen Penghapusan Hak Berhasil Di upload");
+       // return redirect('/penghapusanhak/index')->with("sukses", "Dokumen Penghapusan Hak Berhasil Di upload");
+        return \Redirect::back()->with("sukses", "Dokumen Penghapusan Hak Berhasil Di upload");
 
      }
 

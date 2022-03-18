@@ -64,15 +64,15 @@ class PeralihanWarisController extends Controller
      public function upload (Request $request,$id)
      {
         $request->validate([
-            'almaktakematian'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'almaktanikah'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'almkk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'almnpwp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'almpbb'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'almsertifikat'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'penerimaktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'penerimakk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'penerimaaktalahir'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
+            'almaktakematian'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'almaktanikah'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'almkk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'almnpwp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'almpbb'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'almsertifikat'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'penerimaktp'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'penerimakk'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'penerimaaktalahir'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
         ]);
         $peralihanwaris = \App\PeralihanWaris::find($id);
         $file1 = $request->file('almaktakematian');
@@ -85,38 +85,54 @@ class PeralihanWarisController extends Controller
         $file10 = $request->file('penerimaktp');
         $file11 = $request->file('penerimaaktalahir');
 
-        $fileName1   = 'akta-kematian-'. $file1->getClientOriginalName();
-        $fileName2   = 'akta-nikah-'. $file2->getClientOriginalName();
-        $fileName3   = 'kk-'. $file3->getClientOriginalName();
-        $fileName4   = 'npwp-'. $file4->getClientOriginalName();
-        $fileName5   = 'pbb-'. $file5->getClientOriginalName();
-        $fileName6   = 'sertifikat-'. $file6->getClientOriginalName();
-        $fileName9   = 'ktp-pihak-penerima-'. $file9->getClientOriginalName();
-        $fileName10   = 'kk-pihak-penerima-'. $file10->getClientOriginalName();
-        $fileName11   = 'akta-lahir-pihak-penerima-'. $file11->getClientOriginalName();
-
-        $file1->move('dataperalihanwaris/', $fileName1);
-        $file2->move('dataperalihanwaris/', $fileName2);
-        $file3->move('dataperalihanwaris/', $fileName3);
-        $file4->move('dataperalihanwaris/', $fileName4);
-        $file5->move('dataperalihanwaris/', $fileName5);
-        $file6->move('dataperalihanwaris/', $fileName6);
-        $file9->move('dataperalihanwaris/', $fileName9);
-        $file10->move('dataperalihanwaris/', $fileName10);
-        $file11->move('dataperalihanwaris/', $fileName11);
-
-        $peralihanwaris->almaktanikah  = $fileName1;
-        $peralihanwaris->almaktakematian  = $fileName2;
-        $peralihanwaris->almkk  = $fileName3;
-        $peralihanwaris->almnpwp  = $fileName4;
-        $peralihanwaris->almpbb  = $fileName5;
-        $peralihanwaris->almsertifikat  = $fileName6;
-        $peralihanwaris->penerimaktp  = $fileName9;
-        $peralihanwaris->penerimakk  = $fileName10;
-        $peralihanwaris->penerimaaktalahir  = $fileName11;
-     
+        if(!is_null($file1)){
+            $fileName1   = 'akta-kematian-'. $file1->getClientOriginalName();
+            $file1->move('dataperalihanwaris/', $fileName1);
+            $peralihanwaris->almaktanikah  = $fileName1;
+        }
+        if(!is_null($file2)){
+            $fileName2   = 'akta-nikah-'. $file2->getClientOriginalName();
+            $file2->move('dataperalihanwaris/', $fileName2);
+            $peralihanwaris->almaktakematian  = $fileName2;
+        }
+        if(!is_null($file3)){
+            $fileName3   = 'kk-'. $file3->getClientOriginalName();
+            $file3->move('dataperalihanwaris/', $fileName3);
+            $peralihanwaris->almkk  = $fileName3;
+        }
+        if(!is_null($file4)){
+            $fileName4   = 'npwp-'. $file4->getClientOriginalName();
+            $file4->move('dataperalihanwaris/', $fileName4);
+            $peralihanwaris->almnpwp  = $fileName4;
+        }
+        if(!is_null($file5)){
+            $fileName5   = 'pbb-'. $file5->getClientOriginalName();
+            $file5->move('dataperalihanwaris/', $fileName5);
+            $peralihanwaris->almpbb  = $fileName5;
+        }
+        if(!is_null($file6)){
+            $fileName6   = 'sertifikat-'. $file6->getClientOriginalName();
+            $file6->move('dataperalihanwaris/', $fileName6);
+            $peralihanwaris->almsertifikat  = $fileName6;
+        }
+        if(!is_null($file9)){
+            $fileName9   = 'ktp-pihak-penerima-'. $file9->getClientOriginalName();
+            $file9->move('dataperalihanwaris/', $fileName9);
+            $peralihanwaris->penerimaktp  = $fileName9;
+        }
+        if(!is_null($file10)){
+            $fileName10   = 'kk-pihak-penerima-'. $file10->getClientOriginalName();
+            $file10->move('dataperalihanwaris/', $fileName10);
+            $peralihanwaris->penerimakk  = $fileName10;
+        }
+        if(!is_null($file11)){
+            $fileName11   = 'akta-lahir-pihak-penerima-'. $file11->getClientOriginalName();
+            $file11->move('dataperalihanwaris/', $fileName11);
+            $peralihanwaris->penerimaaktalahir  = $fileName11;
+        }
+      
         $peralihanwaris->update();
-        return redirect('/peralihanwaris/index')->with("sukses", "Dokumen Peralihan Hak Waris Berhasil Di upload");
+        return \Redirect::back()->with("sukses", "Dokumen Peralihan Hak Waris Berhasil Di upload");
 
      }
 

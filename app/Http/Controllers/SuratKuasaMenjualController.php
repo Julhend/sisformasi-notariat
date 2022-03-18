@@ -70,27 +70,35 @@ class SuratKuasaMenjualController extends Controller
      public function upload (Request $request,$id)
      {
         $request->validate([
-            'ktp_pemberi_kuasa'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'ktp_penerima_kuasa'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
-            'fotokopi_sertifikat'  => 'mimes:jpg,jpeg,png,doc,docx,pdf',
+            'ktp_pemberi_kuasa'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'ktp_penerima_kuasa'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
+            'fotokopi_sertifikat'  => 'mimes:jpg,jpeg,png,doc,docx,pdf|max:500',
         ]);
         $suratkuasamenjual = \App\SuratKuasaMenjual::find($id);
         $file1 = $request->file('ktp_pemberi_kuasa');
         $file2 = $request->file('ktp_penerima_kuasa');
         $file3 = $request->file('fotokopi_sertifikat');
     
-        $fileName1   = 'ktp_pemberi_kuasa-'. $file1->getClientOriginalName();
-        $fileName2   = 'ktp_penerima_kuasa-'. $file2->getClientOriginalName();
-        $fileName3   = 'fotokopi_sertifikat-'. $file3->getClientOriginalName();
+        if(!is_null($file1)){
+            $fileName1   = 'ktp_pemberi_kuasa-'. $file1->getClientOriginalName();
+            $file1->move('datasuratkuasamenjual/', $fileName1);
+            $suratkuasamenjual->ktp_pemberi_kuasa  = $fileName1;
+        }
+        if(!is_null($file1)){
+            $fileName2   = 'ktp_penerima_kuasa-'. $file2->getClientOriginalName();
+            $file2->move('datasuratkuasamenjual/', $fileName2);
+            $suratkuasamenjual->ktp_penerima_kuasa  = $fileName2;
+        }
+        if(!is_null($file1)){
+            $fileName3   = 'fotokopi_sertifikat-'. $file3->getClientOriginalName();
+            $file3->move('datasuratkuasamenjual/', $fileName3);
+            $suratkuasamenjual->fotokopi_sertifikat  = $fileName3;
+        }
+      
+       
    
-        $file1->move('datasuratkuasamenjual/', $fileName1);
-        $file2->move('datasuratkuasamenjual/', $fileName2);
-        $file3->move('datasuratkuasamenjual/', $fileName3);
-        $suratkuasamenjual->ktp_pemberi_kuasa  = $fileName1;
-        $suratkuasamenjual->ktp_penerima_kuasa  = $fileName2;
-        $suratkuasamenjual->fotokopi_sertifikat  = $fileName3;
         $suratkuasamenjual->update();
-        return redirect('/suratkuasamenjual/index')->with("sukses", "Dokumen Kuasa Menjual Berhasil Di upload");
+        return \Redirect::back()->with("sukses", "Dokumen Kuasa Menjual Berhasil Di upload");
 
      }
 
