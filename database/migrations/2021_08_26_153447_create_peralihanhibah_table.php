@@ -31,6 +31,7 @@ class CreatePeralihanhibahTable extends Migration
             $table->string('penerimakk')->default('belum di upload');
             $table->string('penerimanpwp')->default('belum di upload');
             $table->text('keterangan');
+            $table->string('keterangan_ditolak')->default('-');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

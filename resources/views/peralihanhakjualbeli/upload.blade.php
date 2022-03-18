@@ -61,7 +61,7 @@
             </table><div class="keys" style="display:none" title="/pengajuan/view?IDPengajuan=992&amp;IDJenisSidang=6"><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span></div>
             </div>        
             </div>
-              <label class="fas fa-dot-circle"> Pihak Kedua - <i style="color:red;">Harus diupload semua!</i></label>
+              <label class="fas fa-dot-circle"> Pihak Kedua </label>
             <div class="portlet-content col-12">
              <div class="table-responsive" id="news-grid">
             <table class="table table-hover">

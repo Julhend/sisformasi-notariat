@@ -32,6 +32,7 @@ class CreatePeralihanjualbeliTable extends Migration
             $table->string('keduakk')->default('belum di upload');
             $table->string('keduanpwp')->default('belum di upload');
             $table->text('keterangan');
+            $table->string('keterangan_ditolak')->default('-');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

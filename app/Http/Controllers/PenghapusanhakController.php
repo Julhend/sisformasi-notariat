@@ -158,15 +158,22 @@ class PenghapusanHakController extends Controller
         });
         return redirect('penghapusanhak/index')->with('sukses','Surat Penghapusan Hak Berhasil Dikonfirmasi');
     }
-    public function reject($id)
+    public function rejectDocument($id)
     {
         $penghapusanhak=\App\PenghapusanHak::find($id);
+        return view('penghapusanhak.reject',['penghapusanhak'=>$penghapusanhak]);
+    }
+
+    public function reject(Request $request,$id)
+    {
+        $penghapusanhak=\App\PenghapusanHak::find($id);
+        $penghapusanhak->keterangan_ditolak = $request->keterangan_ditolak;
         $penghapusanhak->status = 'ditolak';
         $penghapusanhak->save();
         $userid=$penghapusanhak->users->id;
         $user = User::findOrFail($userid);
         $nomor_antrian = $penghapusanhak->id;
-        Mail::raw( 'Maaf Pengajuanmu untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.', telah ditolakk oleh Admin, silahkan periksa berkas dan laukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Penghapusan Hak dengan nomor antrian '.$nomor_antrian.', telah ditolakk oleh Admin dengan alasan, '. $request->keterangan_ditolak.'. silahkan periksa berkas dan laukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

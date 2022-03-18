@@ -34,6 +34,7 @@
                             <th>Tanggal Pengajuan</th>
                             <th>Keterangan</th>
                             <th>Status</th>
+                            <th>Keterangan Penolakan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -50,6 +51,7 @@
                             <td>{{$data->tgl_pengajuan}}</td>
                             <td>{{$data->keterangan}}</td>
                             <td>{{$data->status}}</td>
+                            <td>{{$data->keterangan_ditolak}}</td>
                             <td>
                           
                                 <a href="/peralihanwaris/{{$data->id}}/dokumen"
@@ -103,7 +105,7 @@
                                         Confirm</a>
                                         @endif
                                         @if($data->status == 'pending' || $data->status == 'diproses' )
-                                <a href="/peralihanwaris/{{$data->id}}/reject"
+                                <a href="/peralihanwaris/{{$data->id}}/reject-document"
                                     class="btn btn-danger btn-sm my-1 mr-sm-1 btn-block"
                                     onclick="return confirm('Reject surat ini ?')"><i class="nav-icon fas fa-times"></i>
                                     Reject</a>

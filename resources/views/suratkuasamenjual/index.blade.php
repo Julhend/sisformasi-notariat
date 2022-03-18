@@ -32,6 +32,7 @@
                             <th>Tanggal Pengajuan</th>
                             <th>Keterangan</th>
                             <th>Status</th>
+                            <th>Keterangan Penolakan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@
                             <td>{{$data->tgl_pengajuan}}</td>
                             <td>{{$data->keterangan}}</td>
                             <td>{{$data->status}}</td>
+                            <td>{{$data->keterangan_ditolak}}</td>
                             <td>
                           
                                 <a href="/suratkuasamenjual/{{$data->id}}/dokumen"
@@ -85,7 +87,7 @@
                                     class="btn btn-primary btn-sm my-1 mr-sm-1 btn-block"
                                     onclick="return confirm('Proses surat ini ?')"><i class="nav-icon fas fa-sync"></i>
                                     Process</a>
-                                <a href="/suratkuasamenjual/{{$data->id}}/reject"
+                                <a href="/suratkuasamenjual/{{$data->id}}/reject-document"
                                     class="btn btn-danger btn-sm my-1 mr-sm-1 btn-block"
                                     onclick="return confirm('Reject surat ini ?')"><i class="nav-icon fas fa-times"></i>
                                     Reject</a>

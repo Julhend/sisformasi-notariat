@@ -23,6 +23,7 @@ class CreatePenghapusanhaksTable extends Migration
             $table->string('surat_roya')->default('belum di upload');
             $table->string('ktp')->default('belum di upload');
             $table->text('keterangan');
+            $table->string('keterangan_ditolak')->default('-');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

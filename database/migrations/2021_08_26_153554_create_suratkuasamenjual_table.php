@@ -22,6 +22,7 @@ class CreateSuratkuasamenjualTable extends Migration
             $table->string('ktp_penerima_kuasa')->default('belum di upload');
             $table->string('fotokopi_sertifikat')->default('belum di upload');
             $table->text('keterangan');
+            $table->string('keterangan_ditolak')->default('-');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

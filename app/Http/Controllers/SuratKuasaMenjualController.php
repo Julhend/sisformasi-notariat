@@ -152,15 +152,21 @@ class SuratKuasaMenjualController extends Controller
         });
         return redirect('suratkuasamenjual/index')->with('sukses','Surat Kuasa Menjual Berhasil Dikonfirmasi');
     }
-    public function reject($id)
+    public function rejectDocument($id)
+    {
+        $suratkuasamenjual = \App\SuratKuasaMenjual::find($id);
+        return view('suratkuasamenjual.reject',['suratkuasamenjual'=>$suratkuasamenjual]);
+    }
+    public function reject(Request $request,$id)
     {
         $suratkuasamenjual=\App\SuratKuasaMenjual::find($id);
+        $suratkuasamenjual->keterangan_ditolak = $request->keterangan_ditolak;
         $suratkuasamenjual->status = 'ditolak';
         $suratkuasamenjual->save();
         $userid=$suratkuasamenjual->users->id;
         $user = User::findOrFail($userid);
         $nomor_antrian=$suratkuasamenjual->id;
-        Mail::raw( 'Maaf Pengajuanmu untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.', ditolak oleh Admin. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Surat Kuasa Menjual dengan nomor antrian '.$nomor_antrian.', ditolak oleh Admin dengan alasan, '. $request->keterangan_ditolak.'. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');

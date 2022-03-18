@@ -24,6 +24,7 @@ class CreatePeralihanlelangTable extends Migration
             $table->string('sertifikat')->default('belum di upload');
             $table->string('pbb')->default('belum di upload');
             $table->text('keterangan');
+            $table->string('keterangan_ditolak')->default('-');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

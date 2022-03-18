@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/peralihanjualbeli/{id}/edit','PeralihanJualBeliController@edit');
     Route::post('/peralihanjualbeli/{id}/update','PeralihanJualBeliController@update');
     Route::get('/peralihanjualbeli/{id}/delete','PeralihanJualBeliController@delete');
-    Route::get('/peralihanjualbeli/{id}/reject','PeralihanJualBeliController@reject');
+  
     Route::get('/peralihanjualbeli/{id}/process','PeralihanJualBeliController@process');
     Route::get('/peralihanjualbeli/{id}/resend','PeralihanJualBeliController@resend');
    
@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/peralihanjualbeli/{id}/dokumen','PeralihanJualBeliController@see');
     Route::get('/peralihanjualbeli/tampil','PeralihanJualBeliController@downfunc');
     Route::get('/peralihanjualbeli/{id}/upload-akta','PeralihanJualBeliController@upload_akta');
+    Route::get('/peralihanjualbeli/{id}/reject-document','PeralihanJualBeliController@rejectDocument');
+    Route::post('/peralihanjualbeli/{id}/reject','PeralihanJualBeliController@reject');
     Route::post('/peralihanjualbeli/{id}/confirm','PeralihanJualBeliController@confirm');
     //tandaterima
     Route::get('/tandaterima','TandaTerimaController@index');
@@ -78,7 +80,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/peralihanwaris/{id}/delete','PeralihanWarisController@delete');
      Route::post('/peralihanwaris/{id}/confirm','PeralihanWarisController@confirm');
      Route::get('/peralihanwaris/{id}/upload-akta','PeralihanWarisController@upload_akta');
-     Route::get('/peralihanwaris/{id}/reject','PeralihanWarisController@reject');
+     Route::get('/peralihanwaris/{id}/reject-document','PeralihanWarisController@rejectDocument');
+     Route::post('/peralihanwaris/{id}/reject','PeralihanWarisController@reject');
      Route::get('/peralihanwaris/{id}/process','PeralihanWarisController@process');
      Route::post('/peralihanwaris/{id}/upload','PeralihanWarisController@upload');
      Route::get('/peralihanwaris/{id}/dokumen','PeralihanWarisController@see');
@@ -125,7 +128,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/penghapusanhak/{id}/delete','PenghapusanHakController@delete');
      Route::post('/penghapusanhak/{id}/confirm','PenghapusanHakController@confirm');
      Route::get('/penghapusanhak/{id}/upload-akta','PenghapusanHakController@upload_akta');
-     Route::get('/penghapusanhak/{id}/reject','PenghapusanHakController@reject');
+     Route::get('/penghapusanhak/{id}/reject-document','PenghapusanHakController@rejectDocument');
+     Route::post('/penghapusanhak/{id}/reject','PenghapusanHakController@reject');
      Route::get('/penghapusanhak/{id}/process','PenghapusanHakController@process');
      Route::post('/penghapusanhak/{id}/upload','PenghapusanHakController@upload');
      Route::get('/penghapusanhak/{id}/dokumen','PenghapusanHakController@see');
@@ -140,7 +144,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
     Route::get('/suratkuasamenjual/{id}/delete','SuratKuasaMenjualController@delete');
      Route::post('/suratkuasamenjual/{id}/confirm','SuratKuasaMenjualController@confirm');
      Route::get('/suratkuasamenjual/{id}/upload-akta','SuratKuasaMenjualController@upload_akta');
-     Route::get('/suratkuasamenjual/{id}/reject','SuratKuasaMenjualController@reject');
+     Route::get('/suratkuasamenjual/{id}/reject-document','SuratKuasaMenjualController@rejectDocument');
+     Route::post('/suratkuasamenjual/{id}/reject','SuratKuasaMenjualController@reject');
      Route::get('/suratkuasamenjual/{id}/process','SuratKuasaMenjualController@process');
      Route::post('/suratkuasamenjual/{id}/upload','SuratKuasaMenjualController@upload');
      Route::get('/suratkuasamenjual/{id}/dokumen','SuratKuasaMenjualController@see');

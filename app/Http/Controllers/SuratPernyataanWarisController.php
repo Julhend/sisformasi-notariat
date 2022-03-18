@@ -166,15 +166,21 @@ class SuratPernyataanWarisController extends Controller
         });
         return redirect('suratpernyataanwaris/index')->with('sukses','Surat Pernyataan & Keterangan Waris Berhasil Dikonfirmasi');
     }
-    public function reject($id)
+    public function rejectDocument($id)
+    {
+        $suratpernyataanwaris = \App\SuratPernyataanWaris::find($id);
+        return view('suratpernyataanwaris.reject',['suratpernyataanwaris'=>$suratpernyataanwaris]);
+    }
+    public function reject($id, Request $request)
     {
         $suratpernyataanwaris=\App\SuratPernyataanWaris::find($id);
+        $suratpernyataanwaris->keterangan_ditolak = $request->keterangan_ditolak;
         $suratpernyataanwaris->status = 'ditolak';
         $suratpernyataanwaris->save();
         $userid=$suratpernyataanwaris->users->id;
         $user = User::findOrFail($userid);
         $nomor_antrian=$suratpernyataanwaris->id;
-        Mail::raw( 'Maaf Pengajuanmu untuk Surat Pernyataan dan Keterangan dengan nomor antrian '.$nomor_antrian.', ditolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Surat Pernyataan dan Keterangan dengan nomor antrian '.$nomor_antrian.', ditolak oleh Admin dengan alasan, '.$request->keterangan_ditolak.'. silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
