@@ -152,7 +152,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
      Route::get('/suratkuasamenjual/{id}/dokumen','SuratKuasaMenjualController@see');
      Route::get('/suratkuasamenjual/tampil','SuratKuasaMenjualController@downfunc');
      Route::get('/suratkuasamenjual/{id}/resend','SuratKuasaMenjualController@resend');
- //suratkuasa
+ //pernyataan waris
     Route::get('/suratpernyataanwaris','SuratPernyataanWarisController@index');
     Route::get('/suratpernyataanwaris/index','SuratPernyataanWarisController@index');
     Route::get('/suratpernyataanwaris/create','SuratPernyataanWarisController@create');
@@ -167,6 +167,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,pemohon']], function () {
      Route::post('/suratpernyataanwaris/{id}/upload','SuratPernyataanWarisController@upload');
      Route::get('/suratpernyataanwaris/{id}/dokumen','SuratPernyataanWarisController@see');
      Route::get('/suratpernyataanwaris/tampil','SuratPernyataanWarisController@downfunc');
+
     //arsip
     Route::get('/arsip-peralihan-hak-jual-beli','ArsipController@jualbeli');
     Route::get('/arsip-peralihan-hak-hibah','ArsipController@hibah');

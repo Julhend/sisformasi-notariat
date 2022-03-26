@@ -198,20 +198,28 @@ class PeralihanWarisController extends Controller
         });
         return redirect('peralihanwaris/index')->with('sukses','Surat Peralihan Hak Waris Berhasil Dikonfirmasi');
     }
-    public function reject($id)
+
+    public function rejectDocument($id)
     {
         $peralihanwaris=\App\PeralihanWaris::find($id);
+        return view('peralihanwaris.reject',['peralihanwaris'=>$peralihanwaris]);
+    }
+    
+    public function reject($id, Request $request)
+    {
+        $peralihanwaris=\App\PeralihanWaris::find($id);
+        $peralihanwaris->keterangan_ditolak = $request->keterangan_ditolak;
         $peralihanwaris->status = 'ditolak';
         $peralihanwaris->save();
         $userid=$peralihanwaris->users->id;
         $nomor_antrian = $peralihanwaris->id;
         $user = User::findOrFail($userid);
-        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Waris dengan nomor antrian'.$nomor_antrian.', di tolak oleh Admin, silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
+        Mail::raw( 'Maaf Pengajuanmu untuk Peralihan Hak Waris dengan nomor antrian'.$nomor_antrian.', di tolak oleh Admin dengan alasan, '.$request->keterangan_ditolak.'. silahkan periksa berkas dan lakukan pengajuan ulang. Jika ada pertanyaan silahkan kirim pesan whatsapp ke nomor 0811 6687 491', function ($m) use ($user) {
             $m->from('noreply.auginugrohonotaris@gmail.com', 'Sisformasi Kenotariatan');
 
             $m->to($user->email, $user->name)->subject('Status Pengajuan');
         });
-        return redirect('peralihanwaris/index')->with('sukses','Surat Peralihan Hak Waris Berhasil Dikonfirmasi');
+        return redirect('peralihanwaris/index')->with('sukses','Surat Peralihan Hak Waris Berhasil Di Reject');
     }
     public function process($id)
     {
@@ -245,5 +253,7 @@ class PeralihanWarisController extends Controller
         });
         return redirect('peralihanwaris/index')->with('sukses','Surat Peralihan Hak Waris berhasil di Kirim Kembali');
     }
+
+    
  
 }

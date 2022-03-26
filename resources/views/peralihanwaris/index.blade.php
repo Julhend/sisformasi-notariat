@@ -87,6 +87,7 @@
                             <td>{{$data->tgl_pengajuan}}</td>
                             <td>{{$data->keterangan}}</td>
                             <td>{{$data->status}}</td>
+                            <td>{{$data->keterangan_ditolak}}</td>
                             <td>
                                 <a href="/peralihanwaris/{{$data->id}}/dokumen"
                                     class="btn btn-primary btn-sm my-1 mr-sm-1 btn-block"><i

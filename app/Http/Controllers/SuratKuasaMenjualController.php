@@ -84,12 +84,12 @@ class SuratKuasaMenjualController extends Controller
             $file1->move('datasuratkuasamenjual/', $fileName1);
             $suratkuasamenjual->ktp_pemberi_kuasa  = $fileName1;
         }
-        if(!is_null($file1)){
+        if(!is_null($file2)){
             $fileName2   = 'ktp_penerima_kuasa-'. $file2->getClientOriginalName();
             $file2->move('datasuratkuasamenjual/', $fileName2);
             $suratkuasamenjual->ktp_penerima_kuasa  = $fileName2;
         }
-        if(!is_null($file1)){
+        if(!is_null($file3)){
             $fileName3   = 'fotokopi_sertifikat-'. $file3->getClientOriginalName();
             $file3->move('datasuratkuasamenjual/', $fileName3);
             $suratkuasamenjual->fotokopi_sertifikat  = $fileName3;
