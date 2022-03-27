@@ -66,13 +66,13 @@
             <tbody>
             <tr class="odd">
             <td width="2%">1</td><td width="30%">KTP</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->penerimaktp}}" download="{{$peralihanwaris->penerimaktp}}">{{$peralihanwaris->penerimaktp}}</td><td width="10%"><input name="penerimaktp" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->penerimaktp}}" required></td></tr></td></tr></td></tr>
+                            value="{{$peralihanwaris->penerimaktp}}" ></td></tr></td></tr></td></tr>
             <tr class="even">
             <td width="2%">2</td><td width="30%">KK</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->penerimakk}}" download="{{$peralihanwaris->penerimakk}}">{{$peralihanwaris->penerimakk}}</td><td width="10%"><input name="penerimakk" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->penerimakk}}" required></td></tr></td></tr></td></tr>
+                            value="{{$peralihanwaris->penerimakk}}" ></td></tr></td></tr></td></tr>
             <tr class="odd">
             <td width="2%">3</td><td width="30%">Akta Lahir</td><td width="10%"><a href="/dataperalihanwaris/{{$peralihanwaris->penerimaaktalahir}}" download="{{$peralihanwaris->penerimaaktalahir}}">{{$peralihanwaris->penerimaaktalahir}}</td><td width="10%"><input name="penerimaaktalahir" type="file" class="form-control-file" id="exampleFormControlFile1"
-                            value="{{$peralihanwaris->penerimaaktalahir}}" required></td></tr></td></tr></td></tr>
+                            value="{{$peralihanwaris->penerimaaktalahir}}" ></td></tr></td></tr></td></tr>
             </tbody>
             </table><div class="keys" style="display:none" title="/pengajuan/view?IDPengajuan=992&amp;IDJenisSidang=6"><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span><span>992</span></div>
             </div>        
